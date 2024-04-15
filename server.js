@@ -109,7 +109,7 @@ const updateCraft = async(req, res) => {
   }
 
   if(req.file){
-    fieldsToUpdate.image = "images/" + req.file.filename;
+    fieldsToUpdate.image = req.file.filename;
   }
 
   const result = await Craft.updateOne({_id:req.params.id}, fieldsToUpdate);
