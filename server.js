@@ -19,9 +19,9 @@ mongoose
 const craftSchema = new mongoose.Schema({
   // _id:mongoose.SchemaTypes.ObjectId,
   name: String,
+  image: String,
   description: String,
   supplies: [String],
-  img: String,
 });
 
 const Craft = mongoose.model("Craft", craftSchema);
@@ -72,7 +72,8 @@ app.post("/api/crafts", upload.single("img"), (req, res) => {
   const craft = new Craft({
     name: req.body.name,
     description: req.body.description,
-    supplies: req.body.supplies.split(",")
+    supplies: req.body.supplies.split(","),
+    image: req.body.image
   })
 
   if (req.file) {
@@ -108,7 +109,7 @@ const updateCraft = async(req, res) => {
   }
 
   if(req.file){
-    fieldsToUpdate.img = "images/" + req.file.filename;
+    fieldsToUpdate.image = "images/" + req.file.filename;
   }
 
   const result = await Craft.updateOne({_id:req.params.id}, fieldsToUpdate);
