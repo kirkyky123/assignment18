@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <header>
+        <h1>Buy and Sell Crafts<a href="#" id="add-link">+</a></h1>
+    </header>
+    <div id="craft-list" class="columns"></div>
+    <div id="dialog" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick=closeDialogAndReset() class="w3-button w3-display-topright">&times;</span>
+                <section id="dialog-details">
+                    <form id="craft-form" method="post" class="hidden">
+                        <input type="hidden" id="_id" name="_id">
+                        <p>
+                            <label for="name ">Craft Name:</label>
+                            <input type="text" id="name" name="name" required />
+                        </p>
+                        <p>
+                            <label for="description">Description:</label>
+                            <input type="text" id="description" name="description" required />
+                        </p>
+
+                        <section class="columns">
+                            <p id="img-prev-section">
+                                <img id="img-prev">
+                            </p>
+                            <p>
+                                <label for="img">Upload Image:</label>
+                                <input type="file" id="img" name="img" accept="image/*" />
+                            </p>
+                        </section>
+
+                        <p id="supplies-paragraph">
+                            <label class="inline">Supplies:</label>
+                            <a href="#" id="add-supply">Add Supplies</a>
+                        <section id="supply-forms"></section>
+                        </p>
+                        <p>
+                            <button type="submit">Submit</button>
+                        </p>
+                    </form>
+
+                    <section id="craft-details" class="hidden">
+
+                    </section>
+                </section>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

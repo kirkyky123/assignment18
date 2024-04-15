@@ -1,0 +1,121 @@
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #eac6ee;
+}
+
+#craft-details-column {
+  padding: 10px;
+  margin: 10px;
+  background: lightblue;
+  border-radius: 5px;
+}
+
+#craft-details img {
+  max-width: 300px;
+}
+
+#edit-link, #delete-link {
+  float: right;
+  margin-left: 5px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+.craft {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #000000;
+  background: #e9deda;
+}
+
+.craft img {
+  max-width: 90%;
+  display: block;
+  margin: auto;
+}
+
+.w3-modal-content {
+  max-width: 40%;
+  border: 2px solid #eac6ee;
+}
+
+.w3-container {
+  background: #eac6ee;
+  position: relative;
+}
+
+label {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+#supplies-paragraph input {
+  margin-top: 5px;
+}
+
+#add-supply, #add-link {
+  text-decoration: none;
+  color: #ff3030;
+  font-size: 0.75em;
+  text-align: right;
+}
+
+#add-link{
+  font-size: 1em;
+}
+
+#supply-forms input {
+  width: 100%;
+}
+
+#img-prev-section {
+  width: 200px;
+  border: 1px solid #000000;
+  max-width: 200px;
+  margin-right: 5px;
+}
+#img-prev {
+  padding: 2.5%;
+  display: block;
+  margin: auto;
+  max-width: 95%;
+}
+
+
+#main-nav-items {
+  font-size: 1.2em;
+}
+h1 {
+  text-align: center;
+  color: #000000;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@media (min-width: 600px) {
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .two-columns div {
+    flex: 1;
+  }
+  .craft {
+    width: 15%;
+  }
+
+  #craft-list {
+    justify-content: left;
+  }
+}
