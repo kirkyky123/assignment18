@@ -28,6 +28,23 @@ const craftSchema = new mongoose.Schema({
 
 const Craft = mongoose.model("Craft", craftSchema);
 
+const schema = new mongoose.Schema({
+  name: String,
+});
+
+async function createMessage() {
+  const result = await message.save();
+  console.log(result);
+}
+
+//this creates a Message class in our app
+const Message = mongoose.model("Message", schema);
+const message = new Message({
+  name: "Hello testtstst",
+});
+
+createMessage();
+
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
