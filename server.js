@@ -3,6 +3,7 @@ const app = express();
 const Joi = require("joi");
 const multer = require("multer");
 const fs = require('fs');
+const mongoose = require('mongoose');
 
 app.use(express.static("public"));
 app.use(express.json());
@@ -12,6 +13,25 @@ app.use(cors());
 
 const craftData = fs.readFileSync("crafts.json", "utf8");
 const crafts = JSON.parse(craftData);
+
+mongoose.connect("mongodb+srv://chhetrik:PrBBYtadSqegqBwl@cluster0.mrtzbch.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(error => console.error("Could not connect to MongoDB", error));
+
+const craftSchema = new mongoose.Schema({
+  _id:mongoose.SchemaTypes.ObjectId,
+  name: String,
+  description: String,
+  supplies: [String],
+  img: String,
+});
+
+const Craft = mongoose.model("Craft", craftSchema);
+
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -23,10 +43,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
 
 app.get("/api/crafts", (req, res) => {
   res.send(crafts);
